@@ -1,0 +1,6 @@
+config CUSTOM_WIDGET_STATUS
+    bool "Enable custom status screen"
+    depends on ZMK_DISPLAY
+    select LVGL
+    select LVGL_USE_LABEL
+    select LVGL_USE_IMG

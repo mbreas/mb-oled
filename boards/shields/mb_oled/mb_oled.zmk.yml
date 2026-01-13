@@ -3,6 +3,7 @@ id: mb_custom
 name: mb!custom
 type: shield
 url: https://github.com/mbreas/mb-oled
-requires: [nice_view_header]
+requires:
+  - i2c_oled
 features:
   - display

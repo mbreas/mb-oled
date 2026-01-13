@@ -3,7 +3,7 @@
  *
  * SPDX-License-Identifier: MIT
  */
-#include "custom_status_screen.h"
+#include "status_screen.h"
 #include "widgets/output_status.h"
 
 #include <zephyr/logging/log.h>

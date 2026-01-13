@@ -1,8 +1,8 @@
 if SHIELD_MB_OLED
 config CUSTOM_WIDGET_STATUS
     bool "Enable custom status screen"
-    depends on ZMK_DISPLAY
-    select LVGL
-    select LVGL_USE_LABEL
-    select LVGL_USE_IMG
+    default y
+    select LV_USE_LABEL
+    select LV_USE_IMG
+    select LV_USE_CANVAS
 endif

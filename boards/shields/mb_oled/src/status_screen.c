@@ -117,20 +117,20 @@ static void set_layer_label(struct layer_status_state state)
     lv_label_set_text(layer_label, text);
   }
 
-  // switch (state.index)
-  // {
-  // case 1:
-  //   lv_img_set_src(layer_image, &layer1); // Use your image variable name
-  //   break;
-  // case 2:
-  //   lv_img_set_src(layer_image, &layer2); // Use your image variable name
-  //   break;
-  // case 3:
-  //   lv_img_set_src(layer_image, &layer2); // Use your image variable name
-  //   break;
-  // default:
-  //   break;
-  // }
+  switch (state.index)
+  {
+  case 1:
+    lv_img_set_src(layer_image, &layer1); // Use your image variable name
+    break;
+  case 2:
+    lv_img_set_src(layer_image, &layer2); // Use your image variable name
+    break;
+  case 3:
+    lv_img_set_src(layer_image, &layer2); // Use your image variable name
+    break;
+  default:
+    break;
+  }
 }
 
 static void set_battery_label(struct battery_status_state state)

@@ -50,7 +50,7 @@ lv_obj_t *zmk_display_status_screen()
   {
     lv_img_set_src(layer_image, &layer1); // Use your image variable name
     // lv_obj_align(status_image, LV_ALIGN_TOP_RIGHT, -5, 5);  // Top-right corner
-    lv_obj_align(layer_image, LV_ALIGN_BOTTOM_LEFT, 0, 0);
+    lv_obj_align(layer_image, LV_ALIGN_BOTTOM_LEFT, 0, 10);
     LOG_WRN("Layer image created and positioned");
   }
   else

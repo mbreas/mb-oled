@@ -19,7 +19,7 @@ lv_obj_t *zmk_display_status_screen()
   // lv_label_set_text(test_label, "TEST");
   // lv_obj_center(test_label);
 
-  status_image = lv_img_create(screen);
+  lv_obj_t *status_image = lv_img_create(screen);
   if (status_image != NULL)
   {
     lv_img_set_src(status_image, &zeon); // Use your image variable name

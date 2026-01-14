@@ -18,7 +18,7 @@ struct layer_status_state
 
 static lv_obj_t *screen = NULL;
 static lv_obj_t *status_image = NULL;
-static lv_obj_t *battery_label = NULL;
+static lv_obj_t *layer_label = NULL;
 lv_obj_t *zmk_display_status_screen()
 {
   LOG_WRN("Creating minimal test screen");
@@ -26,9 +26,9 @@ lv_obj_t *zmk_display_status_screen()
   screen = lv_obj_create(NULL);
 
   // Create a simple label with default styling
-  battery_label = lv_label_create(screen);
-  lv_label_set_text(battery_label, "TEST");
-  lv_obj_align(battery_label, LV_ALIGN_TOP_LEFT, 0, 0;
+  layer_label = lv_label_create(screen);
+  lv_label_set_text(layer_label, "TEST");
+  lv_obj_align(layer_label, LV_ALIGN_TOP_LEFT, 0, 0;
 
   status_image = lv_img_create(screen);
   if (status_image != NULL)
@@ -47,7 +47,7 @@ lv_obj_t *zmk_display_status_screen()
   return screen;
 }
 
-static void set_battery_label(struct layer_status_state state)
+static void set_layer_label(struct layer_status_state state)
 {
   if (state.label == NULL)
   {
@@ -55,7 +55,7 @@ static void set_battery_label(struct layer_status_state state)
 
     sprintf(text, "%i", state.index);
 
-    lv_label_set_text(battery_label, text);
+    lv_label_set_text(layer_label, text);
   }
   else
   {
@@ -63,7 +63,7 @@ static void set_battery_label(struct layer_status_state state)
 
     snprintf(text, sizeof(text), "%s", state.label);
 
-    lv_label_set_text(battery_label, text);
+    lv_label_set_text(layer_label, text);
   }
 }
 
@@ -75,7 +75,7 @@ static struct layer_status_state layer_status_get_state(const zmk_event_t *eh)
       .label = zmk_keymap_layer_name(index)};
 }
 
-ZMK_DISPLAY_WIDGET_LISTENER(widget_layer_status, struct layer_status_state, set_battery_label,
+ZMK_DISPLAY_WIDGET_LISTENER(widget_layer_status, struct layer_status_state, set_layer_label,
                             layer_status_get_state)
 
 ZMK_SUBSCRIPTION(widget_layer_status, zmk_layer_state_changed);

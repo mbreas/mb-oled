@@ -60,8 +60,8 @@ lv_obj_t *zmk_display_status_screen()
 
   battery_label = lv_label_create(screen);
   uint8_t charge = zmk_battery_state_of_charge();
-  char chargetext[14] = {};
-  snprintf(chargetext, sizeof(chargetext), "Battery: %d%%", charge);
+  char chargetext[4] = {};
+  snprintf(chargetext, sizeof(chargetext), "%d%%", charge);
   lv_label_set_text(battery_label, chargetext);
   lv_obj_align(battery_label, LV_ALIGN_TOP_RIGHT, 0, 0);
 
@@ -105,8 +105,8 @@ static void set_layer_label(struct layer_status_state state)
 
 static void set_battery_label(struct battery_status_state state)
 {
-  char chargetext[14] = {};
-  snprintf(chargetext, sizeof(chargetext), "Battery: %d%%", state.level);
+  char chargetext[4] = {};
+  snprintf(chargetext, sizeof(chargetext), "%d%%", state.level);
   lv_label_set_text(battery_label, chargetext);
 }
 

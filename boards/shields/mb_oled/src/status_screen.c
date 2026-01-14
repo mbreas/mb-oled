@@ -37,18 +37,19 @@ lv_obj_t *zmk_display_status_screen()
   lv_style_set_text_color(&global_style, lv_color_black());
   lv_style_set_text_font(&global_style, &lv_font_unscii_8);
   lv_style_set_text_letter_space(&global_style, 1);
-  lv_style_set_text_line_space(&global_style, 1);
+  lv_style_set_text_line_space(&g lobal_style, 1);
   lv_obj_add_style(screen, &global_style, LV_PART_MAIN);
 
   layer_label = lv_label_create(screen);
   if (layer_label == NULL)
   {
     LOG_ERR("Failed to create layer label");
-    return -ENOMEM;
+    return NULL;
   }
 
-  lv_obj_align(layer_label, LV_ALIGN_TOP_LEFT, 0, 0);
+  lv_obj_set_style_bg_color(layer_label, lv_color_black(), LV_PART_MAIN);
   lv_obj_set_style_text_color(layer_label, lv_color_white(), LV_PART_MAIN);
+  lv_obj_align(layer_label, LV_ALIGN_TOP_LEFT, 0, 0);
 
   update_layer_display();
   LOG_WRN("Status screen created");

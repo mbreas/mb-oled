@@ -116,18 +116,18 @@ static void set_layer_label(struct layer_status_state state)
 
     lv_label_set_text(layer_label, text);
   }
-  int layer = 1 * state.index;
-  switch (layer)
+
+  switch (state.index)
   {
-  case 1:
+  case 0:
     LOG_WRN("Layer 1 image set");
     lv_img_set_src(layer_image, &layer1); // Use your image variable name
     break;
-  case 2:
+  case 1:
     LOG_WRN("Layer 2 image set");
     lv_img_set_src(layer_image, &layer2); // Use your image variable name
     break;
-  case 3:
+  case 2:
     LOG_WRN("Layer 3 image set");
     lv_img_set_src(layer_image, &layer3); // Use your image variable name
     break;

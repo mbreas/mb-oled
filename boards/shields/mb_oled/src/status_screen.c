@@ -21,6 +21,7 @@ struct layer_status_state
 static lv_obj_t *screen = NULL;
 static lv_obj_t *status_image = NULL;
 static lv_obj_t *layer_label = NULL;
+
 lv_obj_t *zmk_display_status_screen()
 {
   LOG_WRN("Creating minimal test screen");
@@ -29,13 +30,21 @@ lv_obj_t *zmk_display_status_screen()
 
   // Create a simple label with default styling
   layer_label = lv_label_create(screen);
-  lv_label_set_text(layer_label, "");
-  lv_obj_align(layer_label, LV_ALIGN_TOP_LEFT, 0, 0);
-
   uint8_t index = zmk_keymap_highest_layer_active();
-  set_layer_label((struct layer_status_state){
-      .index = index,
-      .label = zmk_keymap_layer_name(index)});
+  const char *label = zmk_keymap_layer_name(index);
+  if (label == NULL)
+  {
+    char text[7] = {};
+    sprintf(text, "%i", index);
+    lv_label_set_text(layer_label, text);
+  }
+  else
+  {
+    char text[13] = {};
+    snprintf(text, sizeof(text), "%s", label);
+    lv_label_set_text(layer_label, text);
+  }
+  lv_obj_align(layer_label, LV_ALIGN_TOP_LEFT, 0, 0);
 
   status_image = lv_img_create(screen);
   if (status_image != NULL)

@@ -21,6 +21,14 @@ struct layer_status_state
   const char *label;
 };
 
+struct battery_status_state
+{
+  uint8_t level;
+#if IS_ENABLED(CONFIG_USB_DEVICE_STACK)
+  bool usb_present;
+#endif
+};
+
 static lv_obj_t *screen = NULL;
 static lv_obj_t *status_image = NULL;
 static lv_obj_t *layer_label = NULL;

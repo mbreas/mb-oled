@@ -116,7 +116,7 @@ static void set_layer_label(struct layer_status_state state)
 
     lv_label_set_text(layer_label, text);
   }
-  switch (state.index)
+  switch (int(state.index))
   {
   case 1:
     LOG_WRN("Layer 1 image set");

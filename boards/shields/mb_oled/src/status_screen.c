@@ -31,6 +31,7 @@ struct battery_status_state
 
 static lv_obj_t *screen = NULL;
 static lv_obj_t *status_image = NULL;
+static lv_obj_t *layer_image = NULL;
 static lv_obj_t *layer_label = NULL;
 static lv_obj_t *battery_label = NULL;
 
@@ -41,9 +42,23 @@ lv_obj_t *zmk_display_status_screen()
   screen = lv_obj_create(NULL);
 
   // Layer setup
-  layer_label = lv_label_create(screen);
   uint8_t index = zmk_keymap_highest_layer_active();
   const char *label = zmk_keymap_layer_name(index);
+
+  layer_image = lv_img_create(screen);
+  if (layer_image != NULL)
+  {
+    lv_img_set_src(layer_image, &layer1); // Use your image variable name
+    // lv_obj_align(status_image, LV_ALIGN_TOP_RIGHT, -5, 5);  // Top-right corner
+    lv_obj_align(layer_label, LV_ALIGN_BOTTOM_LEFT, 0, 0);
+    LOG_WRN("Layer image created and positioned");
+  }
+  else
+  {
+    LOG_ERR("Failed to create layer image");
+  }
+
+  layer_label = lv_label_create(screen);
   if (label == NULL)
   {
     char text[7] = {};
@@ -100,6 +115,21 @@ static void set_layer_label(struct layer_status_state state)
     snprintf(text, sizeof(text), "%s", state.label);
 
     lv_label_set_text(layer_label, text);
+  }
+
+  switch (state.index)
+  {
+  case 1:
+    lv_img_set_src(layer_image, &layer1); // Use your image variable name
+    break;
+  case 2:
+    lv_img_set_src(layer_image, &layer2); // Use your image variable name
+    break;
+  case 3:
+    lv_img_set_src(layer_image, &layer2); // Use your image variable name
+    break;
+  default:
+    break;
   }
 }
 

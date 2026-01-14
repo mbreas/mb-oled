@@ -1,6 +1,10 @@
 #include <lvgl.h>
 
-const LV_ATTRIBUTE_MEM_ALIGN LV_ATTRIBUTE_LARGE_CONST LV_ATTRIBUTE_IMG_UNTITLED uint8_t zeon_data[] = {
+#ifndef LV_ATTRIBUTE_IMG_ZEON
+#define LV_ATTRIBUTE_IMG_ZEON
+#endif
+
+const LV_ATTRIBUTE_MEM_ALIGN LV_ATTRIBUTE_LARGE_CONST LV_ATTRIBUTE_IMG_ZEON uint8_t zeon_data[] = {
     0xff,
     0xff,
     0xff,

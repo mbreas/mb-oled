@@ -5,7 +5,9 @@
  */
 #include "status_screen.h"
 #include "images.h"
+
 #include <zephyr/logging/log.h>
+#include <zmk/display.h>
 #include <zmk/events/layer_state_changed.h>
 #include <zmk/event_manager.h>
 LOG_MODULE_DECLARE(zmk, CONFIG_ZMK_LOG_LEVEL);

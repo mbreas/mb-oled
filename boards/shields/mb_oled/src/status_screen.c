@@ -54,3 +54,5 @@ lv_obj_t *zmk_display_status_screen()
   LOG_WRN("Status screen created");
   return screen;
 }
+
+LOG_WRN("Status");

@@ -28,7 +28,7 @@ lv_obj_t *zmk_display_status_screen()
   // Create a simple label with default styling
   layer_label = lv_label_create(screen);
   lv_label_set_text(layer_label, "TEST");
-  lv_obj_align(layer_label, LV_ALIGN_TOP_LEFT, 0, 0;
+  lv_obj_align(layer_label, LV_ALIGN_TOP_LEFT, 0, 0);
 
   status_image = lv_img_create(screen);
   if (status_image != NULL)
